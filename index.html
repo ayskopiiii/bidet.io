@@ -351,7 +351,7 @@
         <div class="aurora__item"></div>
       </div>
     </h1>
-    <p class="subtitle">Press Enter to blow the candle.
+    <p class="subtitle">Press Enter to blow out the candle.
   </div>
     <section>
         <div class="cake-container">
@@ -463,6 +463,25 @@
 
         createConfetti();
         animateConfetti();
+
+        document.addEventListener('touchstart', () => {
+    blowOutCandles();
+});
+
+function blowOutCandles() {
+    const candles = document.querySelectorAll('.candle');
+    const birthdaySong = document.getElementById('birthdaySong');
+
+    // Stop the candle animation and extinguish flames
+    candles.forEach(candle => {
+        candle.style.animation = 'none';
+        const flame = candle.querySelector('.candle-flame');
+        flame.style.animation = 'extinguish 0.5s forwards';
+    });
+
+    // Play the birthday song
+    birthdaySong.play();
+}
 
     </script>
 </body>
