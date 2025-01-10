@@ -24,6 +24,10 @@
             font-family: "Inter", "DM Sans", Arial, sans-serif;
             font-size: 40px;
           }
+      img {
+    user-select: none;
+    pointer-events: none;
+}
         
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
 
@@ -369,7 +373,7 @@
         <audio id="birthdaySong" src="song.mp3"></audio>
     </section>
     <div class="gift" id="gift">
-      <img src="hehe (1).png" alt="Gift">
+      <img src="hehe (1).png" draggable="false" oncontextmenu="return false;"">
   </div>
   <button class="button" id="showGiftButton">Open</button>
   
@@ -482,7 +486,9 @@ function blowOutCandles() {
     // Play the birthday song
     birthdaySong.play();
 }
-
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Disable right-click menu
+});
     </script>
 </body>
 </html>
